@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> head }}
+<title>SmashorPass.io</title>
+</head>
+<body>
+	<div class="wrapper rate">
+		<div class="flex-container">
+			<div class="flex-item">
+				<div name="0" class="playercard animated profile">
+					<div class="card_picture">
+					</div>
+					<p class="card_name"></p>
+					<div style="position:relative;" class="card_contents">
+						<div class="card_contents_item">
+<b>Rank</b><div id="rank"></div>
+</div>
+<div class="card_contents_item">
+<b>Score</b><div id="elo"></div>
+</div>
+<div class="card_contents_item">
+<b>Winrate</b><div id="winrate"></div>
+</div><br/>
+</div>
+<div style="position:relative;" class="card_contents">
+<div class="card_contents_item">
+<b>Matches</b><div id="matches_total"></div>
+</div>
+<div class="card_contents_item">
+<b>Wins</b><div id="Wins"></div>
+</div>
+<div class="card_contents_item">
+<b>Winrate</b><div id="winrate"></div>
+</div>
+</div>
+</div><!-- card end -->
+</div><!-- flex_item end-->
+</div>
+</div>
+<script>
+$(document).ready(function(){
+  var path = window.location.pathname;
+  var path = path.split("/");
+  console.log(path);
+  $.ajax({
+    type: "GET",
+    crossdomain:true,
+    headers: {"Access-Control-Allow-Origin": "*"},
+    url: "../../api/profile/"+path[2]+"/"+path[3]+"/"+path[4]
+  }).done(function (data) {
+    if("error" in data){
+      alert(data.error);
+    }
+  });
+});
+</script>
+</body>
+</html>

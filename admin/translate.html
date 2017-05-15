@@ -1,0 +1,153 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/bounce.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/admin.css" />
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<title>SmashorPass.io</title>
+</head>
+<body>
+	<div class="wrapper rate">
+		<div class="flex-container vote translate">
+			<div class="card translation-card">
+				<div class="card_header">
+					<h1>Original</h1>(english)
+					<hr>
+				</div>
+				<div>
+				<p class="original">
+				There’s really no catch on SmashOrPass. You sign up with your Facebook account, which provides us your name, profile picture, gender and your country. Your data will never be used for anything else, than what you have given us permission to. We’re aiming to be as transparent with our game as possible. Our only revenue source is ads, your data will never be sold to third parties.
+				</p>
+				</div>
+			</div>
+			<div class="card translation-card">
+				<div class="card_header">
+					<h1>Translation</h1>
+					<hr>
+				</div>
+				<div>
+				<textarea class="translation"></textarea>
+				<button class="submit-translation">
+				<span>Submit</span>
+				<i class='fa fa-cog fa-spin'></i>
+				<i class='fa fa-exclamation'></i>
+				<i class='fa fa-check'></i>
+				</button>
+				</div>
+			</div>
+			<div class="flex-divider"></div>
+			<div class="card translation-hub-card">
+				<div class="card_wrapper">
+					<div class="card_header">
+						<h1>Translation hub</h1>
+						<hr>
+					</div>
+					<div style="text-align:center;">
+						<h3>Please enter your translation key</h3>
+						<input type="password" class="translation-key-input" maxlength="20">
+						<i class="ajax-status fa fa-fw"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card instructions-card">
+				<div class="card_header">
+					<h1>Instructions</h1>
+					<hr>
+				</div>
+				<div>
+					<p>
+						Translate the original text from the left box and type it into the right box.<br>
+						When the translation is done, submit it by either pressing submit or by pressing <code>Shift + Enter</code><br><br>
+						<b>If you regret a translation, please contact us</b>
+						<img class="translation-flag" src="#">
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	let key, language, translationKey;
+	let ajaxing = false;
+	const status = $('.ajax-status');
+	(function($){
+		$('.translation-key-input').keyup(function(){
+			if($(this).val().length == 20 && !ajaxing) {
+				ajaxing = true;
+				key = $(this).val();
+				status.removeClass("fa-check fa-times").addClass("fa-cog fa-spin");
+				$.post('/api/translate/checkkey', {key: key}, function(data) {
+					status.removeClass("fa-cog fa-spin");
+					if(data.status === 0) {
+						status.addClass("fa-check");
+
+						// It's happening, it's happening!
+						language = data.language;
+						$('.translation-hub-card').slideUp(500, function(){
+							$('.translation-flag').attr("src", "/assets/img/flags/" + language + ".png");
+							$('#toLanguage').html("("+")")
+							$('.flex-divider').show();
+							$('.translation-card, .instructions-card').fadeIn(1000);
+							requestNewTranslation();
+						});
+					} else {
+						status.addClass("fa-times");
+					}
+
+					ajaxing = false;
+				});
+			} else {
+				status.removeClass("fa-check fa-times");
+			}
+		});
+
+		// Detect shift + enter
+		$('.translation').keydown(function(event) {
+			if(event.keyCode == 13 && event.shiftKey) {
+				$('.submit-translation').click();
+				event.preventDefault();
+				return false;
+			}
+		});
+
+		$('.submit-translation').click(function(){
+			if($('.translation').val() != "") {
+				$.post('/api/translate/submit', {key: key, language: language, translationKey: translationKey, translation: $('.translation').val()}, function(data) {
+					$('.submit-translation').addClass("done");
+					setTimeout(function() {
+						requestNewTranslation();
+						$('.submit-translation').removeClass("done");
+					}, 500);
+				});
+			}
+		});
+	})(jQuery);
+
+	function requestNewTranslation() {
+		$('.submit-translation').addClass("loading");
+		$.post('/api/translate/requesttranslation', {key: key, language: language}, function(data) {
+			console.log(data);
+			$('.submit-translation').removeClass("loading");
+			$('.translation').val("");
+			if(data.status === 0) {
+				if(data.translationKey == -1) {
+					$('.original').html("You're done translating!<br> Thank you <b>so</b> much!");
+					$('.submit-translation').addClass("done");
+				} else {
+					translationKey = data.translationKey;
+					$('.original').text(data.translation);
+				}
+			} else {
+				$('.original').html("Couldn't get a new translation. Please try again later");
+				$('.submit-translation').addClass("error");
+			}
+			$('.translation').height($('.original').outerHeight(true) - $('.submit-translation').outerHeight(true));
+		});
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+node_modules/
+cache/
+*.test.js
+aws_config.json
+db_config.json
+app_config.json
+i18n/inprogress
+mysql-apt-config_0.6.0-1_all.deb
+# Keep the folder, not the contents
+
+!i18n/inprogress/.gitkeep

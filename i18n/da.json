@@ -1,0 +1,73 @@
+{
+    "general": {
+        "supportemail": "support @ smashorpass.io",
+        "playlists": "Playlister",
+        "genders": "Køn",
+        "switch-playlist": "Skift Playliste",
+        "wins": "Sejre",
+        "losses": "Nederlag",
+        "back": "Tilbage",
+        "leaderboard": "Leaderboard",
+        "profile": "Profil",
+        "logout": "Log ud"
+    },
+    "countries": {
+        "international": "International",
+        "denmark": "Danmark",
+        "sweden": "Sverige",
+        "uk": "Storbritannien",
+        "us": "USA"
+    },
+    "frontpage": {
+        "startgame": "Start spil",
+        "updates": "Opdateringer",
+        "waiting": "Venter",
+        "play": "Spil!",
+        "join": "Tilmeld",
+        "top5": "Leaderboard Top 5"
+    },
+    "about": {
+        "title": "Om",
+        "catch": {
+            "title": "Hvad står skrevet med småt?",
+            "description": "På SmashOrPass skjuler vi ikke noget for dig. Du logger ind med din facebookkonto, hvilket giver os dit navn, profilbillede, køn og dit land. Din data vil aldrig blive brugt til noget andet end hvad du har givet os lov til. Vores mål er at være så gennemsigtige med spillet som muligt. Vores eneste indkomst er reklamer, din data vil aldrig blive solgt til tredjeparter."
+        },
+        "security": {
+            "title": "Sikkerhed",
+            "description": "Vores service gør brug af de nyeste teknologier indenfor sikkerhed, og de bliver ofte evauleret."
+        },
+        "datastorage": {
+            "title": "Hvor længe opbevarer I min data?",
+            "description": "Vi opbevarer din data så længe, du er registreret på vores service, eller så længe din data er nødvendig for konceptet. Du har altid mulighed for at få din data fjernet. Læs venligst sektionen om at fjerne din profil, for instrukser."
+        },
+        "datausage": {
+            "title": "Hvad bruger I min data til?",
+            "description": "Din data bliver udelukkende brugt til at placere og vise dig i de rigtige spillelister. Det er muligt, vi i fremtiden vil introducere nye koncepter, hvor vi vil bruge din data, men du vil altid få besked på forhånd, med mulighed for at melde fra."
+        },
+        "removeprofile": {
+            "title": "Jeg vil have fjernet min profil",
+            "description": "Intet problem! Vi har gjort det nemt for både os og dig. Tryk venligst på linket herunder og følg de givne instrukser.",
+            "link": "Fjern profil"
+        },
+        "whoareyou": {
+            "title": "Hvem er I?",
+            "description": "SmashOrPass.io er bragt til jer af et lille hold af udviklere fra Danmark. For enhver form for kontakt kan du sende os en mail på contact@smashorpass.io"
+        }
+    },
+    "leaderboard": {
+        "header": "Playliste Leaderboard"
+    },
+    "play": {
+        "guide": {
+            "title": "Guide",
+            "voteleft": "Stem på den venstre deltager",
+            "voteright": "Stem på den højre deltager",
+            "skip": "Spring den nuværende afstemning over",
+            "showguide": "Du kan altid tjekke denne popup ved at trykke på ?-menupunktet."
+        },
+        "rank": "Rank",
+        "score": "Score",
+        "winrate": "Sejrsrate",
+        "vote": "Stem"
+    }
+}

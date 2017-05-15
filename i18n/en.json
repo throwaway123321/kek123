@@ -1,0 +1,93 @@
+{
+	"general": {
+		"playlists":"Playlists",
+		"genders": "Genders",
+		"wins":"Wins",
+		"losses":"Losses",
+		"back":"Back",
+		"leaderboard":"Leaderboard",
+		"switch-playlist":"Change Playlist",
+		"successfully-added":"Your user has been added the game! Please allow up to 10 minutes before you're in the game. If you wish to remove your user again, please wait until your user has been added. Visit your profile for more information",
+		"female":"Women",
+		"male":"Men",
+		"profile": "Profil",
+		"logout": "Logout"
+	},
+	"countries": {
+		"international": "International",
+		"denmark": "Denmark",
+		"sweden": "Sweden",
+		"uk": "United Kingdom",
+		"us": "United States"
+	},
+	"credits": {
+		"title": "Credits",
+		"description": "Below you will find a list of the many projects and talented people that helped SmashorPass come together. Thanks everyone!"
+	},
+	"header": {
+		"popover-title": "My Profile",
+		"popover-logout":"Log out"
+	},
+	"frontpage": {
+		"startgame": "Start game",
+		"updates": "Updates",
+		"waiting": "Waiting",
+		"play": "Play!",
+		"join": "Join",
+		"top5": "Leaderboard Top 5",
+		"select-gender": "Select Gender",
+		"select-gamemode": "Select Gamemode",
+		"select-playlist": "Select playlist"
+	},
+	"friends": {
+		"title": "Play SmashorPass with your friends!",
+		"description": "In SmashOrPass Friends you can team up with your friends in a lobby, and play SmashOrPass together! Get started by either creating a new game, or join an existing game.",
+		"join-game": "Join game",
+		"create-game": "Create game"
+	},
+
+	"about": {
+		"title": "About",
+		"catch": {
+			"title": "What's the catch?",
+			"description": "There’s really no catch on SmashOrPass. You sign up with your Facebook account, which provides us your name, profile picture, gender and your country. Your data will never be used for anything else, than what you have given us permission to. We’re aiming to be as transparent with our game as possible. Our only revenue source is ads, your data will never be sold to third parties."
+		},
+		"security": {
+			"title": "Security",
+			"description": "Our service utilizes industry standard security practices and are evaluated frequently"
+		},
+		"datastorage": {
+			"title": "For how long do you store my data?",
+			"description": "We keep your data for as long as you are signed up for our service, or as long as your data is needed for the concept. You are always free to withdraw your consent and have your data removed. Please read the section about removing your profile for instructions."
+		},
+		"datausage": {
+			"title": "What do you use my data for?",
+			"description": "Your data will only be used for adding you to the correct playlists and showing your SmashOrPass profile in the game. We might at some point launch new concepts, where your data could be used, but you will always be notified beforehand, allowing you to opt out."
+		},
+		"removeprofile": {
+			"title": "I want my profile removed",
+			"description": "No worries! We’ve made this easy for both you and us. Please follow the link below and follow the instructions provided.",
+			"link": "Remove profile"
+		},
+		"whoareyou": {
+			"title": "Who are you?",
+			"description": "SmashOrPass.io is a project by a small team of developers based in Denmark. For inquires of any character, please contact us at"
+		}
+	},
+	"leaderboard": {
+		"header":"Playlist Leaderboard"
+	},
+    "play": {
+        "guide": {
+            "title": "Guide",
+            "voteleft": "Vote for the left participant",
+            "voteright": "Vote for the right participant",
+            "skip": "Skip this vote",
+            "showguide": "You can always re-read this guide by clicking the ? in the menu."
+        },
+		"rank":"Rank",
+		"score":"Score",
+		"winrate":"Winrate",
+		"vote":"Vote"
+    }
+}

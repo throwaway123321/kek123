@@ -1,0 +1,64 @@
+{
+    "general": {
+        "supportemail": "support @ smashorpass.io",
+        "playlists": "Playlisten",
+        "wins": "Overwinningen",
+        "losses": "Verliezen",
+        "back": "Terug",
+        "leaderboard": "Scorebord",
+        "switch-playlist": "Verander Playlist"
+    },
+    "countries": {
+        "international": "Internationaal",
+        "denmark": "Denemarken",
+        "sweden": "Zweden",
+        "uk": "Verenigd Koninkrijk",
+        "us": "Verenigde Staten"
+    },
+    "frontpage": {
+        "startgame": "Spel starten",
+        "updates": "Updates",
+        "waiting": "Aan het wachten",
+        "play": "Speel!",
+        "join": "Join",
+        "top5": "Scorebord Top 5"
+    },
+    "about": {
+        "title": "Over",
+        "catch": {
+            "title": "Wat is het addertje onder het gras?",
+            "description": "Er ligt echt geen adder onder het gras bij SmashOrPass. Je registreert met je Facebook account, wat ons jouw naam, profiel foto, geslacht en nationaliteit geeft. Jouw informatie zal nooit voor iets anders gebruikt worden dan jij ons toestemming voor hebt gegeven. We willen zo duidelijk mogelijk zijn met onze intenties. Onze enige bron van inkomen zijn advertenties, jouw informatie zal nooit worden verkocht aan derden."
+        },
+        "security": {
+            "title": "Beveiliging",
+            "description": "Onze service maakt gebruik van standaard beveiligings toepassingen en deze zijn regelmatig geëvalueerd."
+        },
+        "datastorage": {
+            "title": "Voor hoe lang wordt mijn informatie opgeslagen?",
+            "description": "Wij slaan jouw informatie net zo lang op dat jij bent geregistreerd voor onze service, of hoe lang jouw informatie nodig is voor het concept. Jij hebt altijd het recht om jouw toestemming in te trekken en jouw informatie te laten wissen. Lees de sectie over het verwijderen van jouw profiel voor instructies."
+        },
+        "datausage": {
+            "title": "Waarvoor wordt mijn informatie gebruikt?",
+            "description": "Jouw informatie wordt alleen gebruikt om jouw aan het correcte playlist toe te voegen, en om jouw SmashOrPass profiel toe te voegen in het spel. Er worden mogelijk nieuwe concepten gelanceerd in de toekomst, waar jouw informatie voor gebruikt kan worden, maar je wordt altijd van te voren op de hoogte gesteld, zodat je je eventueel kan afmelden."
+        },
+        "removeprofile": {
+            "title": "Ik wil mijn profiel verwijderen.",
+            "description": "Geen probleem! Wij hebben het makkelijk gemaakt voor ons beiden. Klik de link hieronder en volg de instructies die gegeven zijn.",
+            "link": "Verwijder profiel"
+        },
+        "whoareyou": {
+            "title": "Wie zijn jullie?",
+            "description": "SmashOrPass is een project gemaakt door een kleine team van developers gevestigd in Denemarken. Voor vragen, neem contact op alstublieft."
+        }
+    },
+    "leaderboard": {
+        "header": "Playlist Scorebord"
+    },
+    "play": {
+
+        "rank": "Rang",
+        "score": "Score",
+        "winrate": "Winkans",
+        "vote": "Stem"
+    }
+}

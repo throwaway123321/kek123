@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> head }}
+<script src="assets/js/fb_integration.js"></script>
+
+<title>SmashorPass.io</title>
+</head>
+<body>
+  <div class="modal fade" id="playlist-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          Select Playlist
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal_wrapper">
+            <div style="background:url(assets/img/header_pictures/hw_wide.jpg)" class="modal_playlist_entry">
+              <a href="#" class="playlist_option" name="hw"><div class="modal_playlist_entry_overlay"></div>
+              <div class="playlist_entry_wrapper">
+                Hollywood
+              </div></a>
+            </div>
+            <div style="background:url(assets/img/header_pictures/hos.jpg)" class="modal_playlist_entry">
+              <a href="#" class="playlist_option" name="hos"><div class="modal_playlist_entry_overlay"></div>
+              <div class="playlist_entry_wrapper">
+                Heads of State
+              </div></a>
+            </div>
+            <div style="background:url(assets/img/header_pictures/all_wide.jpg);" class="modal_playlist_entry">
+              <a href="#" class="playlist_option" name="all"><div class="modal_playlist_entry_overlay"></div>
+              <div class="playlist_entry_wrapper">
+                International
+              </div></a>
+            </div>
+            <div style="background:url(assets/img/header_pictures/dk_wide.jpg)" class="modal_playlist_entry">
+              <a href="#" class="playlist_option" name="dk"><div class="modal_playlist_entry_overlay"></div>
+              <div class="playlist_entry_wrapper">
+                Denmark
+              </div></a>
+            </div>
+            <div style="background:url(assets/img/header_pictures/nl_wide.jpg);" class="modal_playlist_entry">
+              <a href="#" class="playlist_option" name="nl"><div class="modal_playlist_entry_overlay"></div>
+              <div class="playlist_entry_wrapper">
+                The Netherlands
+              </div></a>
+            </div>
+            <div style="background:url(assets/img/header_pictures/se_wide.jpg)" class="modal_playlist_entry">
+              <a href="#" class="playlist_option" name="se"><div class="modal_playlist_entry_overlay"></div>
+              <div class="playlist_entry_wrapper">
+                Sweden
+              </div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="wrapper rate front">
+  {{> userHeader }}
+  <div class="flex-container vote front">
+    <!-- Modal -->
+    <div class="card welcome" style="height:575px !important;">
+      <div class="card_wrapper">
+        <div style="height:50px;text-align:left;" class="card_header">
+          <h1 style="margin-top:5px;margin-bottom:0px;"><!--{{frontpage.startgame}}--> <img width=50 height=50 src="assets/img/misc/android-chrome-192x192.png"></h1>
+        </div>
+        <div class="card_content">
+          <div class="gamemenu_row">
+            <div class="gamemenu_row_label">{{frontpage.select-gamemode}}</div>
+            <div class="gamemenu_row_content">
+              <div name="versus" class="gamemenu_row_entry entry_active gamemode_select">
+                <div class="label_wrapper">
+                  <div class="row_label">
+                    Versus
+                  </div>
+                </div>
+                <div class="icon_wrapper">
+                  <i class="fa fa-bullseye fa-3x" aria-hidden="true"></i>
+                </div>
+              </div>
+              <!--<div name="single" class="gamemenu_row_entry gamemode_select option_locked">
+                <div class="label_wrapper">
+                  <div class="row_label">
+                    Single
+                  </div>
+                </div>
+                <div class="icon_wrapper">
+                  <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div name="coop" class="gamemenu_row_entry gamemode_select option_locked">
+                <div class="label_wrapper">
+                  <div class="row_label">
+                    co-op
+                  </div>
+                </div>
+                <div class="icon_wrapper">
+                  <i class="fa fa-users fa-3x" aria-hidden="true"></i>
+                </div>
+              </div>-->
+            </div>
+          </div>
+          <div class="gamemenu_row">
+            <div class="gamemenu_row_label">{{frontpage.select-gender}}</div>
+            <div class="gamemenu_row_content">
+              <div name="m" class="gamemenu_row_entry gender_select">
+                <div class="label_wrapper">
+                  <div class="row_label">
+                    Male
+                  </div>
+                </div>
+                <div class="icon_wrapper">
+                  <i class="fa fa-mars fa-3x" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div name="f" class="gamemenu_row_entry entry_active gender_select">
+                <div class="label_wrapper">
+                  <div class="row_label">
+                    Female
+                  </div>
+                </div>
+                <div class="icon_wrapper">
+                  <i class="fa fa-venus fa-3x" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gamemenu_row">
+            <div class="gamemenu_row_label ">{{frontpage.select-playlist}}</div>
+            <div class="gamemenu_row_content playlistbox">
+              <a href="#" data-toggle="modal" data-target="#playlist-modal">
+                <div class="gamemenu_row_entry entry_active" style="position:relative;height:100%;">
+                  <img class="playlistImage" src="assets/img/header_pictures/hw.jpg">
+                  <div class="playlist_flag">{{general.switch-playlist}} <i class="fa fa-share-square-o" aria-hidden="true"></i></div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div id="error"></div>
+
+          <a href="#" onclick="startGame()"><div style="width:calc(70% - 5px) !important;margin-right:5px;" class="playButton">
+            <b>{{frontpage.play}}</b>
+          </div></a><a href="#" onclick="startLogin()"><div class="playButton facebook">
+            <i class="fa fa-facebook-official"></i> {{frontpage.join}}
+          </div></a>
+        </div>
+      </div>
+    </div>
+    <div class="card main_card" style="height:575px;">
+      <div class="main_content">
+        <div class="main leaderboard">
+          <b>{{frontpage.top5}}</b>
+          <div class="leaderboard_entries" style="overflow:hidden;">
+          </div>
+        </div>
+      </div>
+      <div class="bottom_stats">
+        <div class="credits">© Smash Media I/S</div><div class="version">In Development</div>
+      </div>
+    </div>
+
+  <!--<div class="card money_card">
+    <div class="easy_money">skrilla ma dilla</div>
+  </div> -->
+
+</div>
+<script>
+// Default configuration
+var gender = "f";
+var playlist = "hw";
+var gamemode = "versus";
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();
+
+  loadBlog();
+  updateLeaderboard(gender,playlist);
+  // game INIT
+  // default values
+
+  $(".playlist_option").click(function(){
+    playlist = $(this).attr("name");
+    updateLeaderboard(gender,playlist);
+    updatePlaylistbox(playlist);
+    $('#playlist-modal').modal('toggle')
+  });
+
+  $(".gamemode_select").click(function(){
+    if(!$(this).hasClass(".option_locked")) {
+      $(".gamemode_select").removeClass("entry_active");
+      $(this).addClass("entry_active");
+      gamemode = $(this).attr("name");
+      updateLeaderboard(gender,playlist);
+    }
+  });
+  $(".gender_select").click(function(){
+    $(".gender_select").removeClass("entry_active");
+    $(this).addClass("entry_active");
+    gender = $(this).attr("name");
+    updateLeaderboard(gender,playlist);
+  });
+
+  $(".gender").click(function(){
+    $(".gender").removeClass("active");
+    $(this).addClass("active");
+    gender = $(this).attr("name");
+    updateLeaderboard(gender,playlist);
+  });
+  $(".playlist.open").click(function(){
+    $(".playlist").removeClass("active");
+    $(this).addClass("active");
+    playlist = $(this).attr("name");
+    updateLeaderboard(gender,playlist);
+  });
+});  // onload ends
+function updatePlaylistbox(playlist) {
+  $(".playlistImage").attr("src","assets/img/header_pictures/"+playlist+".jpg");
+}
+function updateLeaderboard(gender,playlist) {
+  $.ajax({
+    type: "GET",
+    crossdomain:true,
+    headers: {"Access-Control-Allow-Origin": "*"},
+    url: "../../api/leaderboard/"+playlist+"/"+gender+"/"
+  }).done(function (data) {
+    makeLeaderboard(data);
+    if("error" in data){
+      alert(data.error);
+    }
+  });
+}
+function loadBlog() {
+  $.ajax({
+    type: "GET",
+    crossdomain:true,
+    headers: {"Access-Control-Allow-Origin": "*"},
+    url: "../../api/blog"
+  }).done(function (data) {
+
+  });
+}
+function makeLeaderboard(response) {
+  xd = response;
+  var leaderboard_entries ='';
+  for(var i=1;i < 6;i++){
+    leaderboard_entries += '	<div id="'+i+'" class="leaderboard_entry frontpage"><div class="leaderboard_wrapper"><div class="leaderboard_item position"></div><div class="leaderboard_item picture"><div class="leaderboard_picture"></div></div><div class="leaderboard_item name"></div><i class="fa fa-heart fa-1x" aria-hidden="true"></i><div class="leaderboard_item score"></div></div></div>';
+  }
+  $(".leaderboard_entries").html(leaderboard_entries);
+  for(i=0;i < response.count;i++) {
+    console.log(response);
+    var profile = response.profiles[i];
+    var entry = $("#"+profile.rank);
+    entry.find(".position").html(profile.rank);
+    console.log(entry.find(".leaderboard_picture").css("background-image","url("+profile.picture+")"));
+    entry.find(".name").html(profile.name);
+    entry.find(".score").html(profile.elo);
+    $(entry).show();
+  }
+}
+function startGame() {
+  // gender and playlist must be selected
+  if(gender && playlist){
+    window.location.replace("play/"+playlist+"/"+gender);
+  }else{
+    $("#error").html("Please choose a gender and a playlist!");
+  }
+}
+</script>
+</body>
+</html>

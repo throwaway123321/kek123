@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> head }}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>SmashorPass.io</title>
+</head>
+<body>
+  <!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-body">
+      <input id="gameID" placeholder="Game ID" type="text" style="width:65%;line-height:28px;color:#000;">
+      <button id="connect" class="btn btn-default">Join</button>
+    </div>
+  </div>
+</div>
+</div>
+<div class="wrapper friends">
+
+  <div class="friends_content">
+    <h1 class="open_sans">{{friends.title}}</h1>
+    <p style="font-size:18px" class="open_sans">{{friends.description}}</p>
+    <p>
+      <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg">{{friends.join-game}}</button>
+      <button type="button" class="btn btn-primary btn-lg createGame">{{friends.create-game}}</button>
+    </p>
+    </div>
+</div>
+</div>
+</body>
+</html>

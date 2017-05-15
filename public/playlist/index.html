@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> head }}
+<link rel="stylesheet" type="text/css" href="../../../assets/css/component.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!--
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+-->
+  <script src="../../../assets/js/fb_integration.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../../../assets/thirdparty/js/classie.js"></script>
+  <script src="../../../assets/js/client.js"></script>
+<title>SmashorPass.io!</title>
+</head>
+<body class="playlist-{{ request.playlist }} gender-{{ request.gender }}">
+  <div class="modal fade" id="license_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">License details</h4>
+        </div>
+        <div class="modal-body">
+        These are generated automatically. If you have any concerns regarding our use of pictures, please contact us at contact@smashorpass.io
+          <div id="license_fill">
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <div class="modal fade" id="guide-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4>{{ play.guide.title }}</h4>
+        </div>
+        <div class="modal-body">
+          <code><i class="fa fa-arrow-left"></i></code> {{ play.guide.voteleft }}<br>
+          <code><i class="fa fa-arrow-right"></i></code> {{ play.guide.voteright }}<br>
+          <code><i class="fa fa-arrow-up"></i></code> {{ play.guide.skip }}<br>
+          <p>
+          {{ play.guide.showguide }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper rate playwrap">
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-playlist-picker">
+      <h3 class="heading">{{ general.genders }}</h3>
+      <div class="gender-picker">
+        <a href="#" class="playlist open" gender="m">
+          <i class="fa fa-mars"></i>
+        </a>
+        <a href="#" class="playlist open" gender="f">
+          <i class="fa fa-venus"></i>
+        </a>
+      </div>
+			<h3 class="heading" >{{general.playlists}}</h3>
+      <a href="#"><div class="playlist open" name="all">
+        <div class="playlist_icon">  <img class="flag" src="../../../assets/img/flags/all.png" style="width:100%;height:100%;" /></div>
+        <div class="playlist_content">
+          <h4>{{countries.international}}</h4>
+        </div>
+      </div></a>
+      <a href="#"><div class="playlist open" name="dk">
+        <div class="playlist_icon">  <img class="flag" src="../../../assets/img/flags/dk.png" style="width:100%;height:100%;" /></div>
+        <div class="playlist_content">
+          <h4>{{countries.denmark}}</h4>
+        </div>
+      </div></a>
+      <a href="#"><div class="playlist open" name="se">
+        <div class="playlist_icon">  <img class="flag" src="../../../assets/img/flags/se.png" style="width:100%;height:100%;" /></div>
+        <div class="playlist_content">
+          <h4>{{countries.sweden}}</h4>
+        </div>
+      </div></a>
+      <a href="#"><div class="playlist open" name="uk">
+        <div class="playlist_icon">  <img class="flag" src="../../../assets/img/flags/uk.png" style="width:100%;height:100%;" /></div>
+        <div class="playlist_content">
+          <h4>{{countries.uk}}</h4>
+        </div>
+      </div></a>
+      <a href="#"><div class="playlist open" name="us">
+        <div class="playlist_icon">  <img class="flag" src="../../../assets/img/flags/us.png" style="width:100%;height:100%;" /></div>
+        <div class="playlist_content">
+          <h4>{{countries.us}}</h4>
+        </div>
+      </div></a>
+
+		</nav>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+           <div class="navbar-header">
+             <a class="navbar-brand flex" href="#" id="showLeft">
+               <i class="fa fa-caret-right" aria-hidden="true"></i>       </a>
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                   <span class="sr-only">Toggle navigation</span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+               </button>
+           </div>
+
+           <!-- Collect the nav links, forms, and other content for toggling -->
+           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+                   <li><a href="../../../">Home</a></li>
+                   <li><a id="leaderboardlink" href="#">Leaderboard</a></li>
+                   <li><a href="../../../about">About</a></li>
+                   <li><a onclick="$('#guide-modal').modal('show')" href="#">?</a></li>
+               </ul>
+           </div>
+   </nav>
+    <!--<div class="top_header">
+      <a onclick="startLogin()" class="menu_item facebook" href="#"><div>
+        <img style="width:15px" src="/assets/img/misc/fb-white.png"> Join
+      </div></a>
+      <a id="leaderboardlink"  class="menu_item" href="/leaderboard"><div >
+        {{general.leaderboard}}
+      </div></a>
+      <a href="../../" class="menu_item"><div>
+        {{general.playlists}}
+      </div></a>
+      <a class="menu_item" href="/about"><div >
+        {{about.title}}
+      </div></a>
+    </div>-->
+    <div class="flex-container vote playlistvote">
+      <div class="flex-item first">
+        <div name="1" class="playercard animated">
+          <div class="card_picture">
+            <div class="picture_tools">
+              <a href="#" onclick='cropImage(0)'><i class="fa fa-crop fa-2x icon lefticon" aria-hidden="true"></i></a>
+              <a href="#" onclick="toggleLicense()"><i class="fa fa-info fa-2x icon righticon" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="mobile_helper">
+          <div class="card_name"></div>
+          <hr class="small_label" />
+          <div class="card_contents">
+            <div class="card_contents_item">
+              <b class="big_label">{{play.rank}}</b>
+              <div class="small_label">
+                <i class="fa fa-trophy fa-2x" aria-hidden="true"></i>
+              </div>
+              <div id="rank"></div>
+            </div>
+            <div class="card_contents_item">
+              <b class="big_label">{{play.score}}</b>
+              <div class="small_label">
+              <i style="padding-right:0px" class="fa fa-heart fa-2x" aria-hidden="true"></i>
+            </div>
+              <div id="elo"></div>
+            </div>
+            <div class="card_contents_item winrate">
+              <b class="big_label">{{play.winrate}}</b><div id="winrate"></div>
+            </div>
+          </div>
+          <div id="known_for">
+
+          </div>
+          <div class="content_footer">
+                <a href="#"><div name="0" class="votebutton"><div style="padding-top:8px;"></div><i class="fa fa-long-arrow-left fa-1x votearrow" aria-hidden="true"></i><b> Smash </b></div></a>
+          </div>
+        </div>
+        </div><!-- Card end -->
+      </div>
+      <div class="flex-item versus">
+        <h1>VS</h1>
+      </div>
+
+      <div class="flex-item">
+        <div name="0" class="playercard animated">
+          <div class="card_picture">
+            <div class="picture_tools">
+              <a href="#" onclick='cropImage(1)'><i class="fa fa-crop fa-2x icon lefticon" aria-hidden="true"></i></a>
+              <a href="#" onclick="toggleLicense()"><i class="fa fa-info fa-2x icon righticon" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="mobile_helper">
+          <div class="card_name"></div>
+          <hr class="small_label"/>
+          <div class="card_contents">
+            <div class="card_contents_item">
+              <b class="big_label">{{play.rank}}</b>
+              <div class="small_label">
+                <i class="fa fa-trophy fa-2x" aria-hidden="true"></i>
+              </div>
+              <div id="rank"></div>
+            </div>
+            <div class="card_contents_item">
+              <b class="big_label">{{play.score}}</b>
+              <div class="small_label">
+              <i style="padding-right:0px" class="fa fa-heart fa-2x" aria-hidden="true"></i>
+            </div>
+              <div id="elo"></div>
+            </div>
+            <div class="card_contents_item winrate">
+              <b class="big_label">{{play.winrate}}</b><div id="winrate"></div>
+            </div>
+
+          </div>
+          <div id="known_for">
+
+          </div>
+          <div class="content_footer vote_footer">
+                <a href="#"><div name="1" class="votebutton"><div style="padding-top:8px;"></div><b>Smash </b><i class="fa fa-long-arrow-right fa-1x votearrow" aria-hidden="true"></i></div></a>
+          </div>
+        </div>
+        </div><!-- card end -->
+      </div><!-- flex_item end-->
+    </div><!-- flex container end-->
+  </div><!-- wrapper end -->
+<script>
+var path = window.location.pathname;
+var playlistData = path.split("/");
+var country = playlistData[2];
+var gender = playlistData[3];
+
+$(document).ready(function(){
+
+  var showLeft = document.getElementById( 'showLeft' );
+  var menuLeft = document.getElementById( 'cbp-playlist-picker' );
+  showLeft.onclick = function() {
+    classie.toggle( this, 'active' );
+    classie.toggle( menuLeft, 'cbp-spmenu-open' );
+  };
+  var animation_timeout = Date.now();
+
+
+
+  $(".votebutton").click(function(){
+    // Find the parent
+    var card = $(this).parents()[3];
+    var current_time = Date.now();
+    if(current_time > animation_timeout+1500){
+      animation_timeout = current_time;
+      castVote(card);
+    }
+  });
+  $(".playlist.open").click(function(){
+    if($(this).attr("name")) {
+      country = $(this).attr("name");
+    } else if($(this).attr("gender")) {
+      gender = $(this).attr("gender");
+    }
+    window.location.replace("/play/"+country+"/"+gender);
+  });
+  $("#leaderboardlink").attr("href","../../leaderboard/"+country+"/"+gender);
+  firstRun();
+
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> head }}
+<title>SmashorPass.io</title>
+</head>
+<body>
+	<div style="overflow-y:scroll;" class="wrapper rate leaderboard">
+		<div class="flex-container leaderboardflex">
+			<div class="newcard leaderboard">
+				<div class="top3_header">
+					<div style="width:100%;height:100%;background-color:rgba(0,0,0,0.7);position:absolute;">
+					<div class="top3_title">
+						<h2>Leaderboard</h2>
+					</div>
+					<div class="top3_content flex-container">
+						<div class="top3_item">
+							<div class="top3_picture silver"></div>
+							<div class="top3_score"></div>
+							<div class="top3_name"></div>
+						</div>
+						<div class="top3_item gold">
+							<div class="top3_picture gold"></div>
+							<div class="top3_score"></div>
+							<div class="top3_name"></div>
+						</div>
+						<div class="top3_item">
+							<div class="top3_picture bronze"></div>
+							<div class="top3_score"></div>
+							<div class="top3_name"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<div class="top3_leaderboard">
+					<div class="leaderboard_entries">
+						<div class="leaderboard_entry">
+							<div class="leaderboard_wrapper">
+								<div class="leaderboard_item position">
+									4
+								</div>
+								<div class="leaderboard_item picture">
+									<div class="leaderboard_picture">
+
+									</div>
+								</div>
+								<div class="leaderboard_item name">
+								</div>
+								<div class="leaderboard_item score">
+									<i class="fa fa-heart fa-1x" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+						<div class="leaderboard_entry">
+							<div class="leaderboard_wrapper">
+								<div class="leaderboard_item position">
+									5
+								</div>
+								<div class="leaderboard_item picture">
+									<div class="leaderboard_picture">
+
+									</div>
+								</div>
+								<div class="leaderboard_item name">
+								</div>
+								<div class="leaderboard_item score">
+									<i class="fa fa-heart fa-1x" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+						<div class="leaderboard_entry">
+							<div class="leaderboard_wrapper">
+								<div class="leaderboard_item position">
+									6
+								</div>
+								<div class="leaderboard_item picture">
+									<div class="leaderboard_picture">
+
+									</div>
+								</div>
+								<div class="leaderboard_item name">
+								</div>
+								<div class="leaderboard_item score">
+									<i class="fa fa-heart fa-1x" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+						<div class="leaderboard_entry">
+							<div class="leaderboard_wrapper">
+								<div class="leaderboard_item position">
+									7
+								</div>
+								<div class="leaderboard_item picture">
+									<div class="leaderboard_picture">
+
+									</div>
+								</div>
+								<div class="leaderboard_item name">
+								</div>
+								<div class="leaderboard_item score">
+									<i class="fa fa-heart fa-1x" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+						<div class="leaderboard_entry">
+							<div class="leaderboard_wrapper">
+								<div class="leaderboard_item position">
+									8
+								</div>
+								<div class="leaderboard_item picture">
+									<div class="leaderboard_picture">
+
+									</div>
+								</div>
+								<div class="leaderboard_item name">
+								</div>
+								<div class="leaderboard_item score">
+									<i class="fa fa-heart fa-1x" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+						<div class="leaderboard_entry">
+							<div class="leaderboard_wrapper">
+								<div class="leaderboard_item picture">
+									<div class="leaderboard_picture">
+
+									</div>
+								</div>
+								<div class="leaderboard_item name">
+								</div>
+								<div class="leaderboard_item score">
+									<i class="fa fa-heart fa-1x" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+						<div class="leaderboard_entry">
+							<div class="leaderboard_wrapper">
+								<div class="leaderboard_item picture">
+									<div class="leaderboard_picture">
+
+									</div>
+								</div>
+								<div class="leaderboard_item name">
+								</div>
+								<div class="leaderboard_item score">
+									<i class="fa fa-heart fa-1x" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+						<div class="leaderboard_entry">
+							<div class="leaderboard_wrapper">
+								<div class="leaderboard_item picture">
+									<div class="leaderboard_picture">
+
+									</div>
+								</div>
+								<div class="leaderboard_item name">
+								</div>
+								<div class="leaderboard_item score">
+									<i class="fa fa-heart fa-1x" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+						<div class="leaderboard_entry">
+							<div class="leaderboard_wrapper">
+								<div class="leaderboard_item picture">
+									<div class="leaderboard_picture">
+
+									</div>
+								</div>
+								<div class="leaderboard_item name">
+								</div>
+								<div class="leaderboard_item score">
+									<i class="fa fa-heart fa-1x" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="leaderboard_buttons">
+						<a href="#" id="back_url"><div	style="position:absolute;height:100%;width:100%;margin-top:5px;text-align:center;position:absolute" class="playButton">
+							Tilbage
+						</div></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script>
+var path = window.location.pathname;
+var path = path.split("/");
+var serverresponse;
+
+$(document).ready(function(){
+
+	//update header image
+	$(".top3_header").css("background-image","url(../../assets/img/header_pictures/"+path[2]+".jpg)");
+
+		$.ajax({
+		type: "GET",
+		crossdomain:true,
+		headers: {"Access-Control-Allow-Origin": "*"},
+		url: "../../api/leaderboard/"+path[2]+"/"+path[3]+"/"
+	}).done(function (data) {
+		makeLeaderboard(data);
+		if("error" in data){
+			alert(data.error);
+		}
+	});
+
+	function makeLeaderboard(response) {
+		response.profiles = response.profiles.sort(
+			function compare(a,b) {
+				// Descending sorting
+				if (a.elo < b.elo)
+					return 1;
+				if (a.elo > b.elo)
+					return -1;
+				return 0;
+			}
+		);
+		
+		serverresponse = response;
+		var leaderboard_entries = '';
+		var top3_content = '';
+		for(var i = 1; i <= 3; i++) {
+			var medal, position;
+			switch(i) {
+				case 1:
+					medal = "silver";
+          position = "2"
+					break
+				case 2:
+					medal = "gold";
+          position = "1"
+					break
+				case 3:
+					medal = "bronze";
+          position = "3"
+					break;
+			}
+			
+			top3_content += '<div id="' + position + '" class="top3_item ' + medal + '"><div class="top3_picture ' + medal + '"></div><div class="top3_score"></div><div class="top3_name"></div></div>';
+		}
+	 	
+		for(var i = 4; i <= response.count; i++) {
+			leaderboard_entries += '	<div id="' + i + '" class="leaderboard_entry"><div class="leaderboard_wrapper"><div class="leaderboard_item position"></div><div class="leaderboard_item picture"><div class="leaderboard_picture"></div></div><div class="leaderboard_item name"></div><div class="leaderboard_item score"></div></div></div>';
+		}
+		
+		// fill up containers with the skeleton
+		$(".leaderboard_entries").html(leaderboard_entries);
+		$(".top3_content").html(top3_content);
+
+		for(var i=1; i <= 3; i++) {
+			var profile = response.profiles[i - 1];
+			var entry = $("#" + i);
+			entry.find(".top3_picture").css("background-image","url("+profile.picture+")");
+			entry.find(".top3_name").html(profile.name);
+			entry.find(".top3_score").html('<i class="fa fa-heart fa-1x" aria-hidden="true"></i>'+profile.elo);
+		}
+
+		// fill up normal leaderboard
+		for(var i = 4; i <= response.count; i++) {
+			var profile = response.profiles[i - 1];
+			var entry = $("#" + i);
+			entry.find(".position").html(i);
+			entry.find(".leaderboard_picture").css("background-image","url("+profile.picture+")");
+			entry.find(".name").html(profile.name);
+			entry.find(".score").html('<i class="fa fa-heart fa-1x" aria-hidden="true"></i>'+profile.elo);
+		}
+	}
+	
+	$("#back_url").attr("href", "../../play/" + path[2] + "/" + path[3]);
+});
+
+
+</script>
+</body>
+</html>

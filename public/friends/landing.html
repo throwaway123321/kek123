@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> head }}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>SmashorPass.io</title>
+</head>
+<body>
+  <!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-body">
+      <input id="gameID" placeholder="Game ID" type="text" style="width:65%;line-height:28px;color:#000;">
+      <button id="connect" class="btn btn-default">Join</button>
+    </div>
+  </div>
+</div>
+</div>
+<div class="wrapper friends">
+
+  <div class="friends_content">
+    <h1 class="open_sans light">{{friends.title}}</h1>
+    <p style="font-size:18px" class="open_sans light description">{{friends.description}}</p>
+    <p>
+      <div style="" class="row">
+      <div style="margin-top:50px;" class="col-md-6">
+        <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg">{{friends.join-game}}</button>
+      </div>
+      <div style="margin-top:50px;" class="col-md-6">
+        <button type="button" class="btn btn-primary btn-lg createGame">{{friends.create-game}}</button>
+      </div>
+    </p>
+    </div>
+</div>
+</div>
+<script>
+$(".createGame").click(function(){
+  alert("This feature is currently in development. Come back later");
+});
+$("#connect").click(function(){
+  var gameID = $("#gameID").val();
+  window.location.replace("/"+gameID);
+  console.log(gameID);
+  $.post( "../../api/friends/join", {gameID: gameID})
+  .done(function( data ) {
+    if(data.status === 0) {
+      window.location.replace("/play/friends/"+gameID);
+    }
+  });
+});
+</script>
+</body>
+</html>

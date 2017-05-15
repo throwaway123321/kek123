@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> head }}
+<title>SmashorPass.io</title>
+</head>
+<body>
+<div class="wrapper rate">
+  <div class="flex-container vote">
+    <div class="card welcome" style="max-width:450px;height:600px;overflow-y:scroll;line-height:20px;">
+      <div class="card_header">
+        <h2>{{about.title}} SmashorPass.io</h2>
+      </div>
+      <div style="text-align:left;" class="card_content">
+      <hr>
+      <b>{{about.catch.title}}</b>
+      <p>
+        {{about.catch.description}}
+      </p>
+      <b>{{about.security.title}}</b>
+      <p>
+        {{about.security.description}}
+      </p>
+      <b>{{about.datastorage.title}}</b>
+      <p>
+        {{about.datastorage.description}}
+      </p>
+      <b>{{about.datausage.title}}</b>
+      <p>
+        {{about.datausage.description}}
+      </p>
+      <b>{{about.removeprofile.title}}</b>
+      <p>
+        {{about.removeprofile.description}}<br>
+        <a href="#" onclick="startLogin()" style="text-align:center;color:#0080ff;">{{about.removeprofile.link}}</a>
+      </p>
+      <b>{{about.whoareyou.title}}</b>
+      <p>
+        {{about.whoareyou.description}}
+      </p>
+      <br/>
+
+    </div>
+
+  </div>
+  <a href="./"><div style="text-align:center;width:100%;" class="playButton">
+    {{general.back}}!
+  </div></a>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '374320782927089',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+});
+
+  function startLogin() {
+      FB.login(function(response) {
+        console.log(JSON.stringify(response, null, 2));
+        if (response.status === 'connected') {
+          var accessToken = response.authResponse.accessToken;
+          removeUser(accessToken);
+        } else if (response.status === 'not_authorized') {
+          alert("something went wrong");
+        } else {
+          alert("something went wrong");
+        }
+      }, {scope: 'public_profile,user_location'});
+  }
+  function removeUser(token) {
+    $.delete( "../../api/profile/remove", {access_token: token})
+    .done(function( data ) {
+      console.log(JSON.stringify(data, null, 2));
+      if(data.status === 0) {
+        alert("Your user has been removed successfully. Please allow up to 10 minutes before your user is removed");
+      } else {
+        if(data.errorCode === 2) {
+          alert("We couldn't remove your user, as it doesn't exist in our database. Please contact us if you believe this is a mistake");
+        } else {
+          alert("Something went wrong, please try again later or contact us.");
+        }
+      }
+    });
+  }
+</script>
+</body>
+</html>
