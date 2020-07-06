@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/Diktat0ren/KEKV2#readme",
   "dependencies": {
-    "bcrypt": "^1.0.2",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
     "greenlock-express": "^2.0.8",
